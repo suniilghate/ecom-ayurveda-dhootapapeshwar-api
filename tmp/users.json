@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1700000000001,
+    "name": "Sunil Ghate",
+    "email": "sunil@example.com",
+    "password": "$2a$10$XQq3fV8z2wY8bK7H6nJYgO5nO9gXn5j9W5Zc0k5sPqzG8bQZlXQ2a",
+    "createdAt": "2025-01-10T08:30:00.000Z"
+  },
+  {
+    "id": 1700000000002,
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "$2a$10$XQq3fV8z2wY8bK7H6nJYgO5nO9gXn5j9W5Zc0k5sPqzG8bQZlXQ2a",
+    "createdAt": "2025-01-11T10:15:00.000Z"
+  }
+]
