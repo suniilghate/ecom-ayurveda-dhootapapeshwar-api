@@ -3,7 +3,7 @@ import crypto from "crypto";
 import User from "../models/userModel";
 import nodemailer from "nodemailer";
 
-export const forgotPassword = async (req, res) => {
+const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -51,3 +51,7 @@ export const forgotPassword = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+export default {
+  forgotPassword
+}

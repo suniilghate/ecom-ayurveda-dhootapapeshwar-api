@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 const DATA_PATH = process.env.DATA_PATH || "../sample-data";
 
@@ -18,4 +18,7 @@ function write(fileName, data) {
   );
 }
 
-module.exports = { read, write };
+export default {
+  read,
+  write
+};

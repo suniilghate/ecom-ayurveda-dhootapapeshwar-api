@@ -1,18 +1,24 @@
-const base = require("./baseJsonModel");
+import base from "./baseJsonModel.js";
 
 const FILE = "users.json";
 
-exports.getAll = () => {
+const getAll = () => {
   return base.read(FILE);
 };
 
-exports.findByEmail = (email) => {
+const findByEmail = (email) => {
   const users = base.read(FILE);
   return users.find(u => u.email === email);
 };
 
-exports.create = (user) => {
+const create = (user) => {
   const users = base.read(FILE);
   users.push(user);
   base.write(FILE, users);
+};
+
+export default {
+  getAll,
+  findByEmail,
+  create
 };

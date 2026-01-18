@@ -1,10 +1,15 @@
-const base = require("./baseJsonModel");
+import base from "./baseJsonModel.js";
 const FILE = "products.json";
 
-exports.getAll = () => base.read(FILE);
+const getAll = () => base.read(FILE);
 
-exports.create = (product) => {
+const create = (product) => {
   const products = base.read(FILE);
   products.push(product);
   base.write(FILE, products);
 };
+
+export default {
+  getAll,
+  create
+}

@@ -1,14 +1,14 @@
-const userModel = require("../models/userModel");
+import userModel from "../models/userModel.js";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-exports.getUsers = (req, res) => {
+const getUsers = (req, res) => {
   res.json(userModel.getAll());
 };
 
-exports.createUser = (req, res) => {
+const createUser = (req, res) => {
   const { name, email, password } = req.body;
 
   // basic validation
@@ -44,7 +44,7 @@ exports.createUser = (req, res) => {
   });
 };
 
-exports.forgotPassword = async (req, res) => {
+const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -93,7 +93,7 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -130,4 +130,11 @@ export const login = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
+};
+
+export default {
+  getUsers,
+  createUser,
+  forgotPassword,
+  login
 };

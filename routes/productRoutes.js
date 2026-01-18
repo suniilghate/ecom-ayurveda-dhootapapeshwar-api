@@ -1,13 +1,15 @@
 // routes/productRoutes.js
 import express from "express";
-import { 
-    addProduct,
-    updateProduct,
-    deleteProduct,
-    getProduct,
-} from "../controllers/productController.js";
+import productController from "../controllers/productController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { upload } from "../middleware/upload.js";
+
+const {
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProduct
+} = productController;
 
 const router = express.Router();
 

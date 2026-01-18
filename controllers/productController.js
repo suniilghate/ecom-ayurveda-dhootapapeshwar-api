@@ -1,7 +1,7 @@
 // controllers/productController.js
-import Product from "../models/Product.js";
+import Product from "../models/productModel.js";
 
-export const addProduct = async (req, res) => {
+const addProduct = async (req, res) => {
   try {
     const images = req.files?.map((file) => file.filename) || [];
 
@@ -20,7 +20,7 @@ export const addProduct = async (req, res) => {
 };
 
 /* UPDATE PRODUCT */
-export const updateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -54,7 +54,7 @@ export const updateProduct = async (req, res) => {
 };
 
 /* DELETE PRODUCT */
-export const deleteProduct = async (req, res) => {
+const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -71,7 +71,14 @@ export const deleteProduct = async (req, res) => {
 };
 
 /* GET SINGLE PRODUCT */
-export const getProduct = async (req, res) => {
+const getProduct = async (req, res) => {
   const product = await Product.findById(req.params.id);
   res.json(product);
 };
+
+export default {
+  addProduct,
+  updateProduct,
+  deleteProduct,
+  getProduct
+}
