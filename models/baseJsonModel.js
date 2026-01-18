@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const DATA_PATH = process.env.DATA_PATH || "../sample-data";
+const DATA_PATH = "/tmp";//process.env.DATA_PATH || "../sample-data";
 
 function getFile(fileName) {
   return path.resolve(DATA_PATH, fileName);
