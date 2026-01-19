@@ -8,11 +8,13 @@ const {
   addProduct,
   updateProduct,
   deleteProduct,
-  getProduct
+  getProduct,
+  fetchProducts
 } = productController;
 
 const router = express.Router();
 
+router.get("/", fetchProducts);
 router.post("/add", protect, upload.array("images", 5), addProduct);
 router.get("/:id", protect, getProduct);
 router.put("/:id", protect, upload.array("images", 5), updateProduct);

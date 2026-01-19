@@ -76,9 +76,14 @@ const getProduct = async (req, res) => {
   res.json(product);
 };
 
+const fetchProducts = async (req, res) => {
+  res.json(Product.getAll());
+};
+
 export default {
   addProduct,
   updateProduct,
   deleteProduct,
-  getProduct
+  getProduct,
+  fetchProducts
 }
