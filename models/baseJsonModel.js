@@ -7,8 +7,18 @@ function getFile(fileName) {
   return path.resolve(DATA_PATH, fileName);
 }
 
-function read(fileName) {
-  return JSON.parse(fs.readFileSync(getFile(fileName), "utf-8"));
+// Ensure file exists
+function ensureFile(fileName, defaultData = []) {
+  const filePath = getFile(fileName);
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2));
+  }
+}
+
+function read(fileName, defaultData = []) {
+  ensureFile(fileName, defaultData);
+  const filePath = getFile(fileName);
+  return JSON.parse(fs.readFileSync(filePath, "utf-8"));
 }
 
 function write(fileName, data) {
